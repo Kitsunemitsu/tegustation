@@ -1,3 +1,5 @@
+//Dehusking surgery!
+
 /datum/surgery/dehusk
 	name = "Dehusking"
 	desc = "An experimental surgical procedure that can remove husking from a burn victim"
@@ -8,14 +10,14 @@
 	possible_locs = list(BODY_ZONE_CHEST)
 	target_mobtypes = list(/mob/living/carbon/human)
 
-/datum/surgery/advanced/wing_reconstruction/can_start(mob/user, mob/living/carbon/target)
-	if(HAS_TRAIT(target, TRAIT_HUSK) && target.getFireLoss() < UNHUSK_DAMAGE_THRESHOLD)
+/datum/surgery/dehusk/can_start(mob/user, mob/living/carbon/target)
+	if(HAS_TRAIT(target, TRAIT_HUSK))
 		return TRUE
 
 /datum/surgery_step/dehusk
 	name = "start dehusking"
 	implements = list(TOOL_HEMOSTAT = 100, TOOL_SCALPEL = 85, TOOL_SCREWDRIVER = 35, /obj/item/pen = 15)
-	time = 300
+	time = 100
 
 /datum/surgery_step/dehusk/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	display_results(user, target, "<span class='notice'>You begin to fix [target]'s charred skin...</span>",

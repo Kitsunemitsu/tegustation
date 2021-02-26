@@ -38,7 +38,7 @@
 	name = "subspace headset"
 	desc = "A headset made with special tech in mind to explore deep space. A rarity around these parts"
 	icon_state = "subspace_headset"
-	worn_icon_state = null
+	worn_icon_state = "eng_headset"
 	icon = 'ModularTegustation/Teguicons/kirie_stuff/voidtech_icon.dmi'
 	keyslot = new /obj/item/encryptionkey/headset_void
 	subspace_transmission = FALSE

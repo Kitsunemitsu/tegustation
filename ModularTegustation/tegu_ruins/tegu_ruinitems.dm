@@ -1,8 +1,10 @@
 //Kirie's First Aid Kit, and Special Biohood
 
+/*
 /obj/item/clothing/head/bio_hood/cmo/kirie
 	icon = 'ModularTegustation/Teguicons/kirie_stuff/ruinitems.dmi'
-	worn_state = "bio_kirie"
+	icon_state = "bio_kirie"
+	*/
 
 
 /obj/item/storage/firstaid/kirie
@@ -16,8 +18,14 @@
 
 
 /obj/item/storage/firstaid/kirie/PopulateContents()
-	new /obj/item/reagent_containers/glass/bottle/fentanyl(src),
-	new /obj/item/reagent_containers/syringe(src),
-	new /obj/item/healthanalyzer/advanced(src),
-	new /obj/item/clothing/head/bio_hood/cmo/kirie(src),
-	new /obj/item/autosurgeon/organ/cmo(src),)
+	if(empty)
+		return
+	var/static/items_inside = list(
+		/obj/item/reagent_containers/glass/bottle/fentanyl = 1,
+		/obj/item/reagent_containers/syringe = 1,
+		/obj/item/healthanalyzer/advanced = 1,
+//		/obj/item/clothing/head/bio_hood/cmo/kirie = 1,
+		/obj/item/defibrillator/compact/combat/loaded = 1,
+		/obj/item/reagent_containers/pill/patch/synthflesh = 3,
+		/obj/item/reagent_containers/hypospray/medipen/atropine = 1)
+	generate_items_inside(items_inside,src)
